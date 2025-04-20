@@ -1,4 +1,4 @@
-# Vessel Extraction in Retinal Fundus Images 🧠👁️
+# Vessel Extraction in Retinal Fundus Images 
 
 This project focuses on the extraction of retinal blood vessels from fundus images using traditional image processing techniques. The goal is to enhance the visibility and segmentation of blood vessels without relying on deep learning methods. These techniques are crucial for aiding the diagnosis of diabetic retinopathy and other retinal diseases.
 
