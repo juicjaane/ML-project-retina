@@ -37,42 +37,83 @@ Dataset Link: [Retina Blood Vessel Dataset](https://www.kaggle.com/datasets/abda
 ## Methodology
 
 ### 1. Image Preprocessing
-- Green channel extraction from RGB images (provides highest contrast between vessels and background)
+The preprocessing pipeline includes:
+- Color space conversion (RGB to grayscale)
+- Noise reduction
+- Contrast enhancement
 
 ### 2. Image Enhancement Techniques
-Several enhancement techniques were evaluated based on PSNR, CII, and Entropy metrics:
+Various enhancement techniques were implemented and compared:
 
-| Filter | PSNR | CII | Entropy |
-|--------|------|-----|---------|
-| Histogram Equalization | 12.845 | 1.3303 | 3.789 |
-| Adaptive Histogram Equalization | 7.889 | 1.489 | 5.343 |
-| CLAHE | 25.033 | 1.024 | 4.541 |
-| Gamma Correction | 13.821 | 0.582 | 3.303 |
-| Unsharp Masking | 37.741 | 1.013 | 3.899 |
-| Logarithmic Transformation | 8.402 | 1.141 | 3.272 |
-| Exponential Transformation | 20.047 | 0.782 | 3.673 |
-| Laplacian Sharpening | 29.818 | 1.014 | 4.405 |
+#### 2.1 Histogram-based Methods
+- **Histogram Equalization (HE)**
+  ![Histogram Equalization](Images/histogram_ewualisation.png)
+  - Improves global contrast
+  - May over-enhance some regions
+
+- **Adaptive Histogram Equalization (AHE)**
+  ![Adaptive HE](Images/adaptive_HE.png)
+  - Local contrast enhancement
+  - Better preservation of local details
+
+- **Contrast Limited Adaptive Histogram Equalization (CLAHE)**
+  ![CLAHE](Images/CLAHE.png)
+  - Prevents over-amplification of noise
+  - Better control over enhancement
+
+#### 2.2 Spatial Domain Methods
+- **Gamma Correction**
+  ![Gamma Correction](Images/gamme_correction.png)
+  - Non-linear transformation
+  - Adjusts image brightness
+
+- **Unsharp Masking**
+  ![Unsharp Masking](Images/usharp_masking.png)
+  - Edge enhancement
+  - Improves vessel visibility
+
+#### 2.3 Frequency Domain Methods
+- **Laplacian Filtering**
+  ![Laplacian](Images/laplacian.png)
+  - Edge detection
+  - Second-order derivative
+
+- **Log Transformation**
+  ![Log Transform](Images/log.png)
+  - Compresses dynamic range
+  - Enhances dark regions
+
+- **Exponential Transformation**
+  ![Exponential Transform](Images/exp.png)
+  - Expands dynamic range
+  - Enhances bright regions
 
 ### 3. Vessel Detection
-- Matched Filtering using Gabor Kernel
-- Kernel rotation through 360 degrees to capture varying vessel orientations
-- Multiple kernel sizes to detect different vessel thicknesses
+Multiple approaches were implemented:
 
-### 4. Noise Reduction
-Evaluated noise reduction filters:
+#### 3.1 Matched Filtering
+![Matched Filtering](Images/matched_filtering_example-not on dataset.png)
+- Template matching approach
+- Detects vessel-like structures
 
-| Filter | PSNR | CII | Entropy |
-|--------|------|-----|---------|
-| Non Local Means Filter | 36.964 | 1.000 | 4.955 |
-| Adaptive Median Filter | 36.445 | 0.922 | 5.333 |
-| Gaussian Low pass filter | 32.627 | 0.588 | 5.076 |
-| Butterworth low pass filter | 23.872 | -0.529 | 4.951 |
-| Mean Low pass filter | 33.362 | 0.698 | 5.273 |
+#### 3.2 Laplacian-based Detection
+![Laplacian Detection](Images/lapplaican in appraoch1.png)
+- Second-order derivative
+- Edge enhancement
 
-### 5. Morphological Operations
-- Morphological closing (dilation followed by erosion)
-- Adaptive thresholding for binarization
-- Connected component analysis for noise removal
+#### 3.3 Non-local Means Filtering
+![Non-local Means](Images/non local means filtering approach 1.png)
+- Noise reduction
+- Structure preservation
+
+#### 3.4 Adaptive Thresholding
+![Adaptive Threshold](Images/adaptive-threshold-approach1.png)
+- Local threshold computation
+- Better handling of varying illumination
+
+### 4. Performance Comparison
+![Enhancement Comparison](Images/unsharp-clahe-HE-comaprisiion appraoch 1.png)
+Comparison of different enhancement techniques showing their effects on vessel visibility and noise levels.
 
 ## Performance Metrics
 The project uses several evaluation metrics:
@@ -87,13 +128,9 @@ The project uses several evaluation metrics:
 
 ## Results
 The final approach combines:
-1. Green channel extraction
-2. Laplacian filtering for edge detection
-3. CLAHE for contrast enhancement
-4. Matched filtering for vessel detection
-5. Unsharp masking for further contrast improvement
-6. Morphological operations for noise removal
-7. Adaptive thresholding for binarization
+1. CLAHE for contrast enhancement
+2. Non-local means filtering for noise reduction
+3. Adaptive thresholding for vessel detection
 
 ## Future Improvements
 1. Implementation of edge linking process
@@ -114,8 +151,8 @@ The final approach combines:
 10. A. Imran, et al. "Comparative Analysis of Vessel Segmentation Techniques in Retinal Images." IEEE Access, 2019.
 
 ## Authors
-- K. Harish (3122225001036)
-- Janeshvar Sivakumar (3122225001047)
+
+- Janeshvar Sivakumar 
 
 ## Institution
 Sri Sivasubramaniya Nadar College of Engineering
