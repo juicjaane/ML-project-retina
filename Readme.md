@@ -47,44 +47,44 @@ Various enhancement techniques were implemented and compared:
 
 #### 2.1 Histogram-based Methods
 - **Histogram Equalization (HE)**
-  ![Histogram Equalization](Images/histogram_ewualisation.png)
+  ![Histogram Equalization](Images/histogram_eq.png)
   - Improves global contrast
   - May over-enhance some regions
 
 - **Adaptive Histogram Equalization (AHE)**
-  ![Adaptive HE](Images/adaptive_HE.png)
+  ![Adaptive HE](Images/adaptive_he.png)
   - Local contrast enhancement
   - Better preservation of local details
 
 - **Contrast Limited Adaptive Histogram Equalization (CLAHE)**
-  ![CLAHE](Images/CLAHE.png)
+  ![CLAHE](Images/clahe.png)
   - Prevents over-amplification of noise
   - Better control over enhancement
 
 #### 2.2 Spatial Domain Methods
 - **Gamma Correction**
-  ![Gamma Correction](Images/gamme_correction.png)
+  ![Gamma Correction](Images/gamma_correction.png)
   - Non-linear transformation
   - Adjusts image brightness
 
 - **Unsharp Masking**
-  ![Unsharp Masking](Images/usharp_masking.png)
+  ![Unsharp Masking](Images/unsharp_masking.png)
   - Edge enhancement
   - Improves vessel visibility
 
 #### 2.3 Frequency Domain Methods
 - **Laplacian Filtering**
-  ![Laplacian](Images/laplacian.png)
+  ![Laplacian](Images/laplacian_filter.png)
   - Edge detection
   - Second-order derivative
 
 - **Log Transformation**
-  ![Log Transform](Images/log.png)
+  ![Log Transform](Images/log_transform.png)
   - Compresses dynamic range
   - Enhances dark regions
 
 - **Exponential Transformation**
-  ![Exponential Transform](Images/exp.png)
+  ![Exponential Transform](Images/exp_transform.png)
   - Expands dynamic range
   - Enhances bright regions
 
@@ -92,27 +92,27 @@ Various enhancement techniques were implemented and compared:
 Multiple approaches were implemented:
 
 #### 3.1 Matched Filtering
-![Matched Filtering](Images/matched_filtering_example-not on dataset.png)
+![Matched Filtering](Images/matched_filtering.png)
 - Template matching approach
 - Detects vessel-like structures
 
 #### 3.2 Laplacian-based Detection
-![Laplacian Detection](Images/lapplaican in appraoch1.png)
+![Laplacian Detection](Images/laplacian_detection.png)
 - Second-order derivative
 - Edge enhancement
 
 #### 3.3 Non-local Means Filtering
-![Non-local Means](Images/non local means filtering approach 1.png)
+![Non-local Means](Images/non_local_means.png)
 - Noise reduction
 - Structure preservation
 
 #### 3.4 Adaptive Thresholding
-![Adaptive Threshold](Images/adaptive-threshold-approach1.png)
+![Adaptive Threshold](Images/adaptive_threshold.png)
 - Local threshold computation
 - Better handling of varying illumination
 
 ### 4. Performance Comparison
-![Enhancement Comparison](Images/unsharp-clahe-HE-comaprisiion appraoch 1.png)
+![Enhancement Comparison](Images/enhancement_comparison.png)
 Comparison of different enhancement techniques showing their effects on vessel visibility and noise levels.
 
 ## Performance Metrics
